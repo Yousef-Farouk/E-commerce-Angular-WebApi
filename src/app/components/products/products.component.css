@@ -1,0 +1,40 @@
+div
+{
+    font-family: Poppins-Regular;
+}
+
+.filter-text
+{
+    font-size: 15px;
+    font-family:Poppins-Regular ;
+    margin : 5px 32px 5px 0px;
+    text-decoration: none;
+
+}
+
+.filter-text:hover
+{
+    text-decoration: underline;
+}
+
+
+.block2-txt-child1 a  
+{
+    font-size: 14px;
+    /* font-family: Poppins-Regular; */
+    color: #999;
+}
+
+
+
+.block2-txt-child1 span  
+{
+    font-size: 14px;
+    color: #666666;
+}
+
+.hover:hover
+{
+    color: #007bff;
+
+}
