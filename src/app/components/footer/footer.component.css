@@ -1,0 +1,50 @@
+.bg
+{
+    background-color: #222;
+    padding-bottom: 32px;
+    padding-top: 75px;
+}
+
+.btext {
+
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.6;
+    text-transform: uppercase;
+    color: #fff;
+    padding-bottom: 30px;
+}
+
+.stext
+{
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    line-height: 1.923;
+    color: #b2b2b2;
+    text-decoration: none;
+}
+
+
+form button
+{
+    background-color: #717fe0;
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    line-height: 1.466667;
+    text-transform: uppercase;
+    color: #fff;
+    min-width: 179px;
+    height: 46px;
+
+}
+
+.input-container{
+
+    border-bottom: 2px solid rgba(204,204,204, 0.1);
+}
+
+.input1
+{
+    
+    border: none;
+}
