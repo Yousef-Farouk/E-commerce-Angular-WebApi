@@ -23,3 +23,10 @@
     font-family: Montserrat-Bold;
     src: url('./fonts/Montserrat/Montserrat-Bold.ttf'); 
 }
+
+
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url('./fonts/Poppins/Poppins-SemiBold.ttf');
+}
+
