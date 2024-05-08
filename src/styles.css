@@ -30,3 +30,9 @@
     src: url('./fonts/Poppins/Poppins-SemiBold.ttf');
 }
 
+
+.bord{
+
+    border: 1px solid #e6e6e6;
+
+}
