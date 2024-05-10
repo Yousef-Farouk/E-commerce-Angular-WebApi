@@ -10,11 +10,13 @@ import { ProductDetailsComponent } from './components/products/product-details/p
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ProductInformationComponent } from './components/products/product-information/product-information.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavbarComponent,SliderComponent,BannerComponent,OverviewComponent,ProductsComponent,FooterComponent,ProductDetailsComponent,ShoppingCartComponent,ProductInformationComponent,LoginComponent],
+  imports: [RouterOutlet,NavbarComponent,SliderComponent,BannerComponent,OverviewComponent,ProductsComponent,FooterComponent,ProductDetailsComponent,ShoppingCartComponent,ProductInformationComponent,LoginComponent,RegisterComponent,FontAwesomeModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
