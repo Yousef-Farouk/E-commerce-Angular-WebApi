@@ -1,0 +1,76 @@
+<div class="container mt-5">
+    <h1 class="my-2 text-muted text-center">
+    </h1>
+    <form>
+      <div class="mb-3">
+        <label for="productName" class="form-label">Product Name</label>
+
+        <input
+          type="text"
+          name="productName"
+          formControlName="name"
+          class="form-control"
+          id="productName"
+          aria-describedby="nameHelp"
+          placeholder="Enter Product Name"
+          formControlName="name"
+        />
+
+       
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input
+          formControlName="price"
+          type="number"
+          name="price"
+          class="form-control"
+          id="price"
+          placeholder="Enter Product Price"
+
+        />
+        <!-- <ng-container *ngIf="getPrice.touched">
+          <div
+            *ngIf="getName.hasError('required')"
+            id="priceHelp"
+            class="form-text text-danger"
+          >
+            Price Name is Required
+          </div>
+        </ng-container> -->
+      </div>
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input
+          formControlName="quantity"
+          name="quantity"
+          type="number"
+          class="form-control"
+          id="quantity"
+          placeholder="Enter Product Quantity"
+          formControlName="quantity"
+        />
+        
+        <!-- <ng-container *ngIf="getQuantity.touched">
+          <div
+            *ngIf="getName.hasError('required')"
+            id="quantity"
+            class="form-text text-danger"
+          >
+            Quantity is Required
+          </div>
+        </ng-container> -->
+
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label" for="image">Image</label>
+        <input name="image" type="file" class="form-control" id ="image" placeholder ="Choose Image"  formControlName="img" />
+      </div>
+
+      <button type="submit" class="btn btn-dark mb-5 "> Add Product </button>
+
+
+    </form>
+  </div>
+  

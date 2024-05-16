@@ -11,12 +11,13 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { ProductInformationComponent } from './components/products/product-information/product-information.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProductTableComponent } from './components/products/product-table/product-table.component';
+import { ProductFormComponent } from './components/products/product-form/product-form.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavbarComponent,SliderComponent,BannerComponent,OverviewComponent,ProductsComponent,FooterComponent,ProductDetailsComponent,ShoppingCartComponent,ProductInformationComponent,LoginComponent,RegisterComponent,FontAwesomeModule],
+  imports: [RouterOutlet,NavbarComponent,SliderComponent,BannerComponent,OverviewComponent,ProductsComponent,FooterComponent,ProductDetailsComponent,ShoppingCartComponent,ProductInformationComponent,LoginComponent,RegisterComponent,ProductTableComponent,ProductFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

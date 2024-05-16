@@ -1,0 +1,49 @@
+<div class="mt-5 container">
+    <h1 class="text-muted text-center">Our Products</h1>
+    <button class="btn bg-dark text-white mt-2" style="font-family: Poppins-Bold;" [routerLink]="['/products','add']">Add Product</button>
+    <div class="row mt-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Image</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <th scope="row">{{ product.id }}</th>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.quantity }}</td>
+            <td >
+                <img src= {{product.imageUrl}}  style="width:50px;">
+                
+            </td>
+            <td>
+              <!-- <i
+                [routerLink]="['/products', product.id]"
+                class="mx-1 fs-5 text-warning bi bi-eye-fill"
+              ></i> -->
+
+              <i
+                class="mx-1 fs-5 text-info bi bi-pencil-square"
+              ></i>
+              <i
+                class="mx-1 fs-5 text-danger bi bi-trash3-fill"
+              ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+<!-- [routerLink]="['/products', product.id, 'edit']" -->
+ 
