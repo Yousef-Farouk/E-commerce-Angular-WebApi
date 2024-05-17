@@ -4,6 +4,6 @@ import { ProductTableComponent } from './components/products/product-table/produ
 
 export const routes: Routes = [
 
-    {path:'products/add' ,component:ProductFormComponent},
+    {path:'products/:id/add' ,component:ProductFormComponent},
     {path:'products/all',component:ProductTableComponent}
 ];

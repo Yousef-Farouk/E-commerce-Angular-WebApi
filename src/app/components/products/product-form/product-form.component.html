@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <h1 class="my-2 text-muted text-center">
     </h1>
-    <form>
+    <form [formGroup]="productForm" (submit)="productHandler()">
       <div class="mb-3">
         <label for="productName" class="form-label">Product Name</label>
 
@@ -13,11 +13,29 @@
           id="productName"
           aria-describedby="nameHelp"
           placeholder="Enter Product Name"
-          formControlName="name"
         />
 
        
       </div>
+
+      <div class="mb-3">
+        <label for="productName" class="form-label">Description</label>
+
+        <input
+          type="text"
+          name="productName"
+          formControlName="description"
+          class="form-control"
+          id="productName"
+          aria-describedby="nameHelp"
+          placeholder="Enter Product Name"
+        />
+
+       
+      </div>
+
+
+
       <div class="mb-3">
         <label for="price" class="form-label">Price</label>
         <input
@@ -65,11 +83,17 @@
   
       <div class="mb-3">
         <label class="form-label" for="image">Image</label>
-        <input name="image" type="file" class="form-control" id ="image" placeholder ="Choose Image"  formControlName="img" />
+        <input name="image" type="file" class="form-control" id ="image" placeholder ="Choose Image"  formControlName="image" />
       </div>
 
-      <button type="submit" class="btn btn-dark mb-5 "> Add Product </button>
+      <div class="">
+        <select class="w-100 px-2 border" style="font-family:Poppins-Regular;font-size: 13px; height:40px;color:#888">            
+            <option>Choose Category</option>
+        </select>
+    </div>
 
+
+      <button type="submit" class="btn btn-dark mb-5 ">Add Product </button>
 
     </form>
   </div>

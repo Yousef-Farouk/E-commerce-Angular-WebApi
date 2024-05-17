@@ -25,20 +25,20 @@ export class ProductApiService {
     return this.http.get(`${this.baseUrl}/${productId}`)
   }
 
-  addNewProduct(product:Iproduct){
+  addNewProduct(product:any){
 
     return this.http.post(`${this.baseUrl}`,product)
   }
 
-  editProduct(product:Iproduct){
+  editProduct(productId : number ,product:any){
 
     return this.http.patch(`${this.baseUrl}`,product)
+    
   }
 
   deleteProduct(productId : number){
       
     return this.http.delete(`${this.baseUrl}/${productId}`)
-
   }
 
 }
