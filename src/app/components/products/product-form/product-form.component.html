@@ -83,17 +83,18 @@
   
       <div class="mb-3">
         <label class="form-label" for="image">Image</label>
-        <input name="image" type="file" class="form-control" id ="image" placeholder ="Choose Image"  formControlName="image" />
+        <input name="image" type="file" class="form-control" id ="image" placeholder ="Choose Image"  formControlName="image" (change)="onFileSelected($event)" />
       </div>
 
-      <div class="">
-        <select class="w-100 px-2 border" style="font-family:Poppins-Regular;font-size: 13px; height:40px;color:#888">            
-            <option>Choose Category</option>
+      <div class="mb-4 mt-3">
+        <select class="w-100 px-2 border" style="font-family:Poppins-Regular;font-size: 13px; height:40px;color:#888" formControlName = "category">
+           <!-- <option>c</option> -->
+            <option *ngFor="let category of categories" [value] ="category.id">{{category.name}}</option>
         </select>
     </div>
 
 
-      <button type="submit" class="btn btn-dark mb-5 ">Add Product </button>
+      <button type="submit" class="btn btn-dark mb-5 ">{{productId == 0 ? "Add Product" : "Edit Product"}}</button>
 
     </form>
   </div>

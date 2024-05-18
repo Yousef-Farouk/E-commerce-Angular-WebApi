@@ -1,6 +1,6 @@
 <div class="mt-5 container">
     <h1 class="text-muted text-center">Our Products</h1>
-    <button class="btn bg-dark text-white mt-2" style="font-family: Poppins-Bold;" [routerLink]="['/products',product.id,'add']">Add Product</button>
+    <button class="btn bg-dark text-white mt-2" style="font-family: Poppins-Bold;" [routerLink]="['/products',0,'add']">Add Product</button>
     <div class="row mt-4">
       <table class="table">
         <thead>
@@ -21,6 +21,7 @@
             <td>{{ product.description }}</td>
             <td>{{ product.price }}</td>
             <td>{{ product.quantity }}</td>
+
             <td >
                 <img src= {{product.imageUrl}}  style="width:50px;">
                 
@@ -33,9 +34,11 @@
 
               <i
                 class="mx-1 fs-5 text-info bi bi-pencil-square"
+                [routerLink]="['/products',product.id,'add']"
               ></i>
               <i
                 class="mx-1 fs-5 text-danger bi bi-trash3-fill"
+                (click)="deleteProduct(product.id)"
               ></i>
             </td>
           </tr>

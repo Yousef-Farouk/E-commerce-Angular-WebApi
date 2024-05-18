@@ -5,8 +5,8 @@ export interface Iproduct{
     description : string ,
     price:string,
     quantity:number,
-    image : any,
-    imageUrl : string,
+    image : File
+    imageUrl : string
     categoryId : number ,
-    couponId : number
+    // couponId : number
 }

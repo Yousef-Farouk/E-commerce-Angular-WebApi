@@ -45,7 +45,10 @@ export class ProductTableComponent implements OnInit{
     })
   }
 
-  delete(productId: number) {
+  
+
+
+  deleteProduct(productId: number) {
     this.productService.deleteProduct(productId).subscribe({
       next: () => {
         this.products = this.products.filter(

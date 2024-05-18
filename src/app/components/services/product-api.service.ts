@@ -27,12 +27,13 @@ export class ProductApiService {
 
   addNewProduct(product:any){
 
+    console.log(product)
     return this.http.post(`${this.baseUrl}`,product)
   }
 
   editProduct(productId : number ,product:any){
 
-    return this.http.patch(`${this.baseUrl}`,product)
+    return this.http.put(`${this.baseUrl}/${productId}`,product)
     
   }
 
