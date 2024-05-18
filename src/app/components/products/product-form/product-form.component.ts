@@ -58,6 +58,7 @@ export class ProductFormComponent implements OnInit {
         this.getQuantity.setValue(null)
         this.getDescription.setValue(null)
         this.getImage.setValue(null)
+        this.getCategory.setValue(null)
       },
     }) 
 
@@ -72,10 +73,9 @@ export class ProductFormComponent implements OnInit {
           this.getQuantity.setValue(this.product.quantity)
           this.getPrice.setValue(this.product.price)
           this.getImage.setValue(this.product.image)
-         // console.log(this.categories.find(c=> c.id == this.product.categoryId)?.name);
-          let cat = this.categories.find(c=> c.id == this.product.categoryId)
-          // console.log(cat.name? );
-          this.getCategory.setValue(cat?.name || 'Choose Category')
+         //console.log(this.categories.find(c=> c.id == this.product.categoryId)?.name);
+          //let cat = this.categories.find(c=> c.id == this.product.categoryId)
+          //this.getCategory.setValue(cat?.name || 'Choose Category')
         }
       }) 
     }
@@ -134,12 +134,13 @@ export class ProductFormComponent implements OnInit {
           formData.append('description', this.productForm.get('description')?.value || '');
           formData.append('quantity',this.getQuantity.value?.toString() || '0');
           formData.append('price', this.getPrice.value?.toString() || '0');
-         // formData.append('category', this.productForm.get('category')?.value || '');
-         formData.append('image', this.productForm.get('image')?.value as File || null);
+          formData.append('categoryId', this.getCategory.value || '');
+          formData.append('image', this.productForm.get('image')?.value as File || null);
 
           this.productService.addNewProduct(formData).subscribe({
-          next:()=>{
-            console.log(this.productForm.value);
+          next:(data)=>{
+
+            console.log(data);
           },
           error:(error)=>{
             console.log(error);
@@ -150,18 +151,18 @@ export class ProductFormComponent implements OnInit {
       else {
 
           console.log("product is edited");
-          console.log(this.productForm.get('category')?.value);
           const formData = new FormData();
           formData.append('name',this.getName.value|| '');
           formData.append('description', this.getDescription.value|| '');
           formData.append('quantity',this.getQuantity.value?.toString() || '0');
           formData.append('price', this.getPrice.value?.toString() || '0');
-          formData.append('categoryId', this.productForm.get('category')?.value || '');
+          formData.append('categoryId', this.getCategory.value || '');
           formData.append('image', this.productForm.get('image')?.value as File );
 
           this.productService.editProduct(this.productId,formData).subscribe({
             next:(data)=>{
               console.log(data);
+              this.route.navigate(["/products/all"])
             }
             ,
             error:(error)=>{
