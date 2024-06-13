@@ -64,7 +64,7 @@ export class ProductFormComponent implements OnInit {
 
     if(this.productId != 0 ){
 
-      this.productService.getProductById(this.productId).subscribe({
+      this.productService.getById(this.productId).subscribe({
         next:(data)=>{
           console.log(data);
           this.product = data 
@@ -73,9 +73,6 @@ export class ProductFormComponent implements OnInit {
           this.getQuantity.setValue(this.product.quantity)
           this.getPrice.setValue(this.product.price)
           this.getImage.setValue(this.product.image)
-         //console.log(this.categories.find(c=> c.id == this.product.categoryId)?.name);
-          //let cat = this.categories.find(c=> c.id == this.product.categoryId)
-          //this.getCategory.setValue(cat?.name || 'Choose Category')
         }
       }) 
     }
@@ -137,7 +134,7 @@ export class ProductFormComponent implements OnInit {
           formData.append('categoryId', this.getCategory.value || '');
           formData.append('image', this.productForm.get('image')?.value as File || null);
 
-          this.productService.addNewProduct(formData).subscribe({
+          this.productService.addItem(formData).subscribe({
           next:(data)=>{
 
             console.log(data);
@@ -159,7 +156,7 @@ export class ProductFormComponent implements OnInit {
           formData.append('categoryId', this.getCategory.value || '');
           formData.append('image', this.productForm.get('image')?.value as File );
 
-          this.productService.editProduct(this.productId,formData).subscribe({
+          this.productService.editItem(this.productId,formData).subscribe({
             next:(data)=>{
               console.log(data);
               this.route.navigate(["/products/all"])

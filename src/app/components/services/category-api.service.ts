@@ -13,5 +13,5 @@ export class CategoryApiService extends ApiService<Icategory> {
   constructor(http:HttpClient,@Inject(BASE_URL) baseUrl :string) {
 
       super(http,"https://localhost:7237/api/Category")
-   }
+  }
 }

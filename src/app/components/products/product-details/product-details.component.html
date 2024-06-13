@@ -4,7 +4,7 @@
         <div class="col-md-6 col-lg-7 col-sm-10 pb-4 ">
             <div class="img-container d-flex ">
                     <div class="side-imgs d-block">
-                        <ul class="list-unstyled ">
+                        <!-- <ul class="list-unstyled ">
                             <li class="mb-4" >
                                 <img src=" ../../../../../../assets/imgs/product-detail-01.jpg " class="w-100">
                            </li>
@@ -14,30 +14,30 @@
                             <li  class=" mb-4">
                                 <img src=" ../../../../../../assets/imgs/product-detail-03.jpg  " class="w-100">
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                   
 
                     <div id="carouselExampleFade" class="carousel slide carousel-fade detail-img" data-bs-ride="carousel">
                         <div class="carousel-inner ">
                             <div class="carousel-item active ">
-                                <img src=" ../../../../../../assets/imgs/product-detail-01.jpg" class="w-100" alt="...">
+                                <img src={{product.imageUrl}} class="w-100" alt="...">
                             </div>
-                            <div class="carousel-item w-100">
+                            <!-- <div class="carousel-item w-100">
                                 <img src=" ../../../../../../assets/imgs/product-detail-02.jpg" class="w-100" alt="...">
                             </div>
                             <div class="carousel-item w-100">
                                 <img src=" ../../../../../../assets/imgs/product-detail-03.jpg" class="w-100" alt="...">
-                            </div>
+                            </div> -->
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
-                        </button>
+                        </button> -->
                     </div>
                 
             </div>
@@ -45,19 +45,19 @@
 
         <div class="col-md-6 col-lg-5 pb-4">
             <div class="pe-5 pt-1 px-lg-0">
-                <h4 class="btext">
-                    Lightweight Jacket
+                <h4 class="btext mb-2">
+                   {{product.name}}
                 </h4>
 
-                <span class="mtext">
-                    $58.79
+                <span class="mtext mb-5">
+                    $ {{product.price}}
                 </span>
 
                 <p class="stext">
-                    Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+                    {{product.description.split('.').slice(0,3).join('.')}}
                 </p>
 
-                <div class="pb-4">
+                <div class="mt-5 pb-4 ">
                     <div class="d-flex pb-3 flex-end w-100">
                         <div class="d-flex align-items-center justify-content-center" style="width:105px;font-family:Arial, Helvetica, sans-serif">
                             Size

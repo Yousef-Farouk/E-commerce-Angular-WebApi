@@ -31,7 +31,7 @@ export class ProductTableComponent implements OnInit{
 
   ngOnInit():void{
 
-    this.productService.getAllProducts().subscribe({
+    this.productService.getAll().subscribe({
 
         next:((data)=>{
           this.products=data
@@ -49,7 +49,7 @@ export class ProductTableComponent implements OnInit{
 
 
   deleteProduct(productId: number) {
-    this.productService.deleteProduct(productId).subscribe({
+    this.productService.deleteItem(productId).subscribe({
       next: () => {
         this.products = this.products.filter(
           (product) => product.id != productId

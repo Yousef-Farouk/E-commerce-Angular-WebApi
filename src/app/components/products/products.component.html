@@ -165,25 +165,29 @@
         
     </div>
 
-    <div class="row pt-3">
-        <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="block2 ">
+
+    <div  class="row pt-3">
+
+        
+    
+        <div *ngFor=" let product of products"  class="col-lg-3 col-md-4 col-sm-6">
+            <div class="block2 mb-2 mt-2">
                 <div class="position-relative img-block ">
-                    <img src="../../../assets/imgs/product-01.jpg " class=" h-100 w-100" alt="IMG-PRODUCT">
+                    <img src={{product.imageUrl}} class="h-100 w-100" alt="IMG-PRODUCT" >
 
-                    <a href="#" class="btn block2-btn d-flex justify-content-center align-items-center px-3">
+                    <a href="#" class="btn block2-btn d-flex justify-content-center align-items-center px-3" [routerLink]="['/products',product.id]">
                         Quick View
                     </a>
                 </div>
 
                 <div class="block2-txt  pt-3 d-flex justify-content-between">
                     <div class="block2-txt-child1 d-flex flex-column ">
-                        <a href="product-detail.html" class="d-flex flex-column  text-decoration-none pb-2 hover">
-                            Esprit Ruffle Shirt
+                        <a href="product-detail.html" class="d-flex flex-column  text-decoration-none pb-2 hover" [routerLink]="['/products',product.id]">
+                            {{product.name}}
                         </a>
 
-                        <span class="">
-                            $16.64
+                        <span class="" style="font-size: 16px;">
+                            $ {{product.price}}
                         </span>
                     </div>
 
@@ -197,105 +201,6 @@
             </div>
 
         </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="block2">
-                <div class="position-relative img-block">
-                    <img src="../../../assets/imgs/product-02.jpg " class=" h-100 w-100" alt="IMG-PRODUCT">
-
-                    <a href="#" class="btn block2-btn d-flex justify-content-center align-items-center px-3">
-                        Quick View
-                    </a>
-                </div>
-
-                <div class="block2-txt  pt-3 d-flex justify-content-between">
-                    <div class="block2-txt-child1 d-flex flex-column ">
-                        <a href="product-detail.html" class="d-flex flex-column  text-decoration-none pb-2 hover">
-                            Esprit Ruffle Shirt
-                        </a>
-
-                        <span class="">
-                            $16.64
-                        </span>
-                    </div>
-
-                    <div class="block2-txt-child2">
-                        <a href="#" class="">
-                            <img class="hover" src="../../../assets/imgs/icons/icon-heart-01.png" alt="ICON">
-                            <img class="d-none" src="../../../assets/imgs/icons/icon-heart-02.png" alt="ICON">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="block2">
-                <div class="position-relative img-block">
-                    <img src="../../../assets/imgs/product-03.jpg " class=" h-100 w-100" alt="IMG-PRODUCT">
-
-                    <a href="#" class="btn block2-btn d-flex justify-content-center align-items-center px-3">
-                        Quick View
-                    </a>
-                </div>
-
-                <div class="block2-txt  pt-3 d-flex justify-content-between">
-                    <div class="block2-txt-child1 d-flex flex-column ">
-                        <a href="product-detail.html" class="d-flex flex-column  text-decoration-none pb-2 hover">
-                            Esprit Ruffle Shirt
-                        </a>
-
-                        <span class="">
-                            $16.64
-                        </span>
-                    </div>
-
-                    <div class="block2-txt-child2">
-                        <a href="#" class="">
-                            <img class="hover" src="../../../assets/imgs/icons/icon-heart-01.png" alt="ICON">
-                            <img class="d-none" src="../../../assets/imgs/icons/icon-heart-02.png" alt="ICON">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="block2">
-                <div class="position-relative img-block">
-                    <img src="../../../assets/imgs/product-04.jpg " class=" h-100 w-100" alt="IMG-PRODUCT">
-
-                    <a href="#" class="btn block2-btn d-flex justify-content-center align-items-center px-3">
-                        Quick View
-                    </a>
-                </div>
-
-                <div class="block2-txt  pt-3 d-flex justify-content-between">
-                    <div class="block2-txt-child1 d-flex flex-column ">
-                        <a href="product-detail.html" class="d-flex flex-column  text-decoration-none pb-2 hover">
-                            Esprit Ruffle Shirt
-                        </a>
-
-                        <span class="">
-                            $16.64
-                        </span>
-                    </div>
-
-                    <div class="block2-txt-child2">
-                        <a href="#" class="">
-                            <img class="hover" src="../../../assets/imgs/icons/icon-heart-01.png" alt="ICON">
-                            <img class="d-none" src="../../../assets/imgs/icons/icon-heart-02.png" alt="ICON">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
         
     </div>
 
