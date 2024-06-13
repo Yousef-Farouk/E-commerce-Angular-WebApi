@@ -171,7 +171,6 @@ export class ProductFormComponent implements OnInit {
 
     else{
           
-      console.log("form invalid");
     }
   }
 
