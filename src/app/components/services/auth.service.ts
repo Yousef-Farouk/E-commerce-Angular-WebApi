@@ -5,6 +5,7 @@ import { ApiService } from './api.service';
 import { BASE_URL } from './../tokens/tokens/app-tokens.token';
 import { catchError, map } from 'rxjs/operators'; // Import the operators
 import { Observable, of } from 'rxjs';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'
@@ -18,20 +19,30 @@ export class AuthService extends ApiService<ILogin> {
 
   login(loginData:ILogin) : Observable<any>{
 
-    return this.http.post<any>(this.baseUrl,loginData)
+    return this.http.post<any>(this.baseUrl, loginData).pipe(
+      map(response => {
+          if (response) {
+              localStorage.setItem('authToken', response.token);
+              return true;
+          }
+          return false;
+      }),
+      catchError(error => {
+          return of(false);
+      })
+    );
   }
+
+
+  logout(): void {
+    localStorage.removeItem('authToken');
+  }
+  
+  isLoggedIn(): boolean {
+    return !! localStorage.getItem('authToken');
+  }
+
+
 }
 
 
-// .pipe(
-//   map(response=>{
-//     console.log(response);
-//       if(response.body)
-//           return true
-
-//       return false 
-//   }),
-//   catchError(error=>{
-//     console.log('login error',error);
-//     return of(false)
-//   })
