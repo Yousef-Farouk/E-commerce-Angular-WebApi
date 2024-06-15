@@ -7,11 +7,19 @@ import { ProductInformationComponent } from '../products/product-information/pro
 @Component({
   selector: 'app-product-info',
   standalone: true,
-  imports: [NavbarComponent,FooterComponent,ProductDetailsComponent,ProductInformationComponent],
+  imports: [NavbarComponent,ProductDetailsComponent,ProductInformationComponent,FooterComponent],
   templateUrl: './product-info.component.html',
   styleUrl: './product-info.component.css'
 })
 export class ProductInfoComponent {
 
+  productDescription  = '' ;
+
+
+  handleDescription(data : string ){
+
+      this.productDescription = data 
+      console.log("description from parent",this.productDescription);
+  }
   
 }

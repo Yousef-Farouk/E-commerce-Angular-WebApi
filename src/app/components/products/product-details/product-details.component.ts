@@ -1,7 +1,7 @@
 import { productList } from './../../models/productList';
 import { Iproduct } from './../../models/iproduct';
 import { ActivatedRoute ,Router ,RouterLinkActive,RouterLink} from '@angular/router';
-import { Component ,OnInit} from '@angular/core';
+import { Component ,OnInit, Output ,EventEmitter} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl,FormGroup,ReactiveFormsModule,Validators } from '@angular/forms';
 import { ProductApiService } from '../../services/product-api.service';
@@ -14,6 +14,9 @@ import { ProductApiService } from '../../services/product-api.service';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent implements OnInit {
+
+
+  @Output() dataEmitter = new EventEmitter<string>();
 
 
   product : Iproduct = {
@@ -35,9 +38,8 @@ constructor(public router : Router,
   public ActivatedRoute : ActivatedRoute,
   public productService : ProductApiService) {
   
-
+  }
   
-}
   ngOnInit(): void {
 
     this.ActivatedRoute.params.subscribe({
@@ -51,6 +53,7 @@ constructor(public router : Router,
       this.productService.getById(this.productId).subscribe({
         next:(data)=>{
           this.product = data 
+          this.dataEmitter.emit(this.product.description)
         }
       });
     }
