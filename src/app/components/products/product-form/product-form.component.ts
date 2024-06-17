@@ -8,12 +8,14 @@ import { Iproduct } from '../../models/iproduct';
 import { Icategory } from '../../models/icategory';
 import { error } from 'console';
 import { CategoryApiService } from '../../services/category-api.service';
+import { NavbarComponent } from '../../navbar/navbar.component';
+import { FooterComponent } from '../../footer/footer.component';
 
 
 @Component({
   selector: 'app-product-form',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,NavbarComponent,FooterComponent],
   templateUrl: './product-form.component.html',
   styleUrl: './product-form.component.css'
 })

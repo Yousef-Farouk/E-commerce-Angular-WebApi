@@ -4,11 +4,13 @@ import { Iproduct } from '../../models/iproduct';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { error } from 'console';
 import { ProductApiService } from '../../services/product-api.service';
+import { NavbarComponent } from '../../navbar/navbar.component';
+import { FooterComponent } from '../../footer/footer.component';
 
 @Component({
   selector: 'app-product-table',
   standalone: true,
-  imports: [CommonModule,RouterLink,RouterLinkActive],
+  imports: [CommonModule,RouterLink,RouterLinkActive,NavbarComponent,FooterComponent],
   templateUrl: './product-table.component.html',
   styleUrl: './product-table.component.css'
 })
