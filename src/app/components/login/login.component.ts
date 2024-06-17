@@ -25,7 +25,7 @@ export class LoginComponent {
 
   
 
-  onSubmit() {
+  onSubmit(){
 
     this.authService.login(this.loginData).subscribe(success => {
         if (success) {

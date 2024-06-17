@@ -13,11 +13,12 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProductTableComponent } from './components/products/product-table/product-table.component';
 import { ProductFormComponent } from './components/products/product-form/product-form.component';
+import { HomeComponent } from './components/home/home.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavbarComponent,SliderComponent,BannerComponent,OverviewComponent,ProductsComponent,FooterComponent,ProductDetailsComponent,ShoppingCartComponent,ProductInformationComponent,LoginComponent,RegisterComponent,ProductTableComponent,ProductFormComponent],
+  imports: [RouterOutlet,NavbarComponent,SliderComponent,BannerComponent,OverviewComponent,ProductsComponent,FooterComponent,ProductDetailsComponent,ShoppingCartComponent,ProductInformationComponent,LoginComponent,RegisterComponent,ProductTableComponent,ProductFormComponent,HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

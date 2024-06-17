@@ -19,7 +19,6 @@ export class ProductInfoComponent {
   handleDescription(data : string ){
 
       this.productDescription = data 
-      console.log("description from parent",this.productDescription);
   }
   
 }
