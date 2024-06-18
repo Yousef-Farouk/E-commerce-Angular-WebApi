@@ -18,31 +18,10 @@ export class ProductApiService extends ApiService<Iproduct>{
     super(http,"https://localhost:7237/api/product")
 }
 
-  // getAllProducts():Observable<Iproduct[]>{
+ 
+  getProductByCategory(category : string) : Observable<Iproduct[]>{
 
-  //   return this.http.get<Iproduct[]>(this.baseUrl)
-  // }
-
-  // getProductById(productId : number){
-
-  //   return this.http.get(`${this.baseUrl}/${productId}`)
-  // }
-
-  // addNewProduct(product:any){
-
-  //   console.log(product)
-  //   return this.http.post(`${this.baseUrl}`,product)
-  // }
-
-  // editProduct(productId : number ,product:any){
-
-  //   return this.http.put(`${this.baseUrl}/${productId}`,product)
-    
-  // }
-
-  // deleteProduct(productId : number){
-      
-  //   return this.http.delete(`${this.baseUrl}/${productId}`)
-  // }
+    return this.http.get<Iproduct[]>(`${this.baseUrl}/${category}`)
+  }
 
 }

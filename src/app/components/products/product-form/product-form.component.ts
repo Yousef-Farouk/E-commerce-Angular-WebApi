@@ -82,7 +82,6 @@ export class ProductFormComponent implements OnInit {
     this.categoryService.getAll().subscribe({
 
       next:(data)=>{
-        console.log(data);
         this.categories = data
       }
       ,

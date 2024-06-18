@@ -14,7 +14,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="bi bi-person-fill fs-2 me-3"></i>
                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="text" id="form3Example1c" class="form-control" placeholder="Your Name" required [(ngModel)]="registerData.username" formControlName="username"/>
+                        <input type="text" id="form3Example1c" class="form-control" placeholder="Your Name" formControlName="username"/>
                         <ng-container *ngIf="registerForm.get('username')?.touched || submitted">
                           <div
                             *ngIf="registerForm.get('username')?.hasError('required') "
@@ -30,7 +30,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="bi bi-envelope-fill fs-2 me-3"></i>
                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="email" id="form3Example3c" class="form-control" placeholder="Your Email" required [(ngModel)]="registerData.email" formControlName="email"  />
+                        <input type="email" id="form3Example3c" class="form-control" placeholder="Your Email"  formControlName="email"  />
                         <ng-container *ngIf="registerForm.get('email')?.touched || submitted">
                           <div
                             *ngIf="registerForm.get('email')?.hasError('required')"
@@ -54,7 +54,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="bi bi-lock-fill fs-2 me-3"></i>
                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4c" class="form-control" placeholder="Password" required [(ngModel)]="registerData.password" formControlName="password" />
+                        <input type="password" id="form3Example4c" class="form-control" placeholder="Password"  formControlName="password" />
                         <ng-container *ngIf="registerForm.get('password')?.touched || submitted">
                           <div
                             *ngIf="registerForm.get('password')?.hasError('required')"
@@ -70,7 +70,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="bi bi-key-fill fs-2 me-3"></i>
                       <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4cd" class="form-control" placeholder="Confirm your password"  [(ngModel)]="registerData.confirmpassword" formControlName="confirmpassword"/>
+                        <input type="password" id="form3Example4cd" class="form-control" placeholder="Confirm your password"  formControlName="confirmpassword"/>
                         <ng-container *ngIf="registerForm.get('confirmpassword')?.touched || submitted">
                           <div
                             *ngIf="registerForm.get('confirmpassword')?.hasError('required')"

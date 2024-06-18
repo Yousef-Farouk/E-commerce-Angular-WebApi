@@ -37,12 +37,10 @@ export class ProductTableComponent implements OnInit{
 
         next:((data)=>{
           this.products=data
-          console.log("products:" ,this.products)
         })
 
         ,
         error:(error=>{
-          console.log("error: ",error)
         })
     })
   }
@@ -56,8 +54,7 @@ export class ProductTableComponent implements OnInit{
         this.products = this.products.filter(
           (product) => product.id != productId
         );
-        // this.idContent.emit(productId)
-        // console.log("sent id emitted" , productId);
+      
 
       },
       error: () => {},

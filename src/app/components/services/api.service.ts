@@ -42,18 +42,20 @@ import { BASE_URL } from '../tokens/tokens/app-tokens.token';
   providedIn: 'root'
 })
 export class ApiService<T> {
-  private dataSubject = new BehaviorSubject<T[]>([]);
-  data$ = this.dataSubject.asObservable();
+  // private dataSubject = new BehaviorSubject<T[]>([]);
+  // data$ = this.dataSubject.asObservable();
 
   constructor(protected http: HttpClient, @Inject(BASE_URL) protected baseUrl: string) {}
 
   getAll(): Observable<T[]> {
-    return this.http.get<T[]>(this.baseUrl).pipe(
-      tap(data => {
-        console.log("fetched data");
-        this.dataSubject.next(data)})
-    );
+    return this.http.get<T[]>(this.baseUrl)
   }
+
+  // .pipe(
+  //   tap(data => {
+  //     console.log("fetched data");
+  //     this.dataSubject.next(data)})
+  // );
 
   getById(itemId: number): Observable<T> {
     return this.http.get<T>(`${this.baseUrl}/${itemId}`);

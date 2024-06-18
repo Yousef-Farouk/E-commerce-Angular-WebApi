@@ -29,17 +29,52 @@ export class ProductsComponent implements OnInit{
   }
   ngOnInit(): void {
 
-    this.productService.data$.subscribe(products=>{
-        this.products = products
+
+    this.ActivatedRoute.queryParams.subscribe(params=>{
+      if(params['category'])
+        {
+          console.log(params)
+          this.productService.getProductByCategory(params['category']).subscribe({
+            next:(data:Iproduct[])=>{
+              this.products = data
+            }
+          })
+        }
+       
+      else {
+        this.productService.getAll().subscribe({
+          next:(data:Iproduct[])=>{
+            this.products = data
+          }
+        });
+      }
     })
-
-    if (!this.products.length) {
-      this.productService.getAll().subscribe();
-    }
-
   }
 
 
+  getProductByCategory(category : string ){
+
+     if(category == 'all')
+      {
+        this.productService.getAll().subscribe({
+        
+          next:(data:Iproduct[])=>{
+  
+            console.log(data)
+            this.products = data
+          }
+        })
+      }
+      else {
+        this.productService.getProductByCategory(category).subscribe({
+          next:(data:Iproduct[])=>{
+            this.products = data
+          }
+        })
+      }
+      
+      
+  }
 
 
   displaySearch()

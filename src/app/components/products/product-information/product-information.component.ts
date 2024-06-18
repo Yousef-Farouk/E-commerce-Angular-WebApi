@@ -28,6 +28,7 @@ export class ProductInformationComponent implements OnInit {
 
   userId : string = ''
 
+  userName:string = ''
   @Input() productDescription = '';
 
   reviews :IReview[] = [] ;
@@ -56,6 +57,8 @@ export class ProductInformationComponent implements OnInit {
     )
 
    this.userId = this.tokenService.getClaim("nameid")
+   this.userName = this.tokenService.getClaim("given_name")
+
   }
 
   selectTab(tab: string): void {
@@ -69,16 +72,17 @@ export class ProductInformationComponent implements OnInit {
       rating : this.rating,
       productId :this.productId ,
       userId:this.userId,
-      userName:null,
+      userName:this.userName,
       userImage:null,
        
     } 
 
     this.reviews.push(review)
 
+    
     this.reviewService.addItem(review).subscribe({
       next:(data)=>{
-          console.log(data)
+          
       }
     })
     // event.stopPropagation()

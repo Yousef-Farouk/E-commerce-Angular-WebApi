@@ -15,6 +15,7 @@
     top :0px ;
     left: 0px;
     padding: 34px 38px;
+    color: black;
 }
 
 .block-ltext
@@ -36,5 +37,60 @@
     font-size: 15px;
     line-height: 1.466667;
     text-transform: uppercase;
+    color : black ; 
+    
 }
 
+
+.block1 a:hover{
+    background-color: rgba(103,117,214,0.8);
+    color : white;
+}
+
+
+.block1-txt-child2{
+    transform: scaleX(0);
+    overflow: hidden;
+}
+
+.block1-link {
+
+    transform: translateY(250%);
+    border-bottom: 2px solid #fff;
+    color: white;
+}
+
+.block1 a:hover .block1-txt-child2{
+    transform: scaleX(1);    
+}
+
+.block1 a:hover .block1-link {
+    transform: translateY(0);
+}
+
+
+
+.trans-3{
+
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+}
+
+.trans-5{
+
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+}
+
+
+.trans-9{
+
+    transition-duration: 0.9s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+}

@@ -91,20 +91,21 @@ onSubmit(){
   this.registerData = this.registerForm.value;
 
 
-  this.registerService.Register(this.registerData).subscribe(
-    response=>{
+  this.registerService.Register(this.registerData).subscribe({
+
+    next:(response)=>{
       if(response)
         this.router.navigate(['/home'])
       else
       {
         alert('register failed')
       }
-    },
-
-    error=>{
+    }
+    ,
+    error:(error)=>{
         this.serverErrorMessage = error
     }
-  )
+  })
 
 }
 

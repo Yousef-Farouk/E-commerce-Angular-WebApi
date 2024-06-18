@@ -21,7 +21,7 @@
                             <!-- <li class="nav-item">
                               <a class="nav-link" >Contact</a>
                             </li> -->
-                            <li class="nav-item dropdown py-0">
+                            <li *ngIf="role == 'admin' "  class="nav-item dropdown py-0">
                               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                                 Dashboard
                               </a>
@@ -47,14 +47,19 @@
                     <div class="cart-icon">
                       <!-- <a class="nav-link" ><i class="bi bi-person fs-3"></i></a>
                       <span ></span> -->
-                      <div class="nav-item dropdown py-0 ">
+                      <div  class="nav-item dropdown py-0 ">
                         <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                           <i class="bi bi-person fs-3 px-0"></i>
                         </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item px-3" [routerLink]="['']">Profile</a></li>
-                          <li><a class="dropdown-item px-3"[routerLink]="">Sign Out</a></li>
+                        <ul *ngIf="hasToken()" class="dropdown-menu">
+                          <li><a class="dropdown-item px-3" [routerLink]="['']"  >Profile</a></li>
+                          <li><a class="btn dropdown-item px-3 " (click)="logout()">log out</a></li>
                         </ul>
+                        <ul  class="dropdown-menu">
+                          <li><a class="dropdown-item px-3" [routerLink]="['/login']">log in</a></li>
+                          <li><a class="dropdown-item px-3"[routerLink]="['/register']">register</a></li>
+                        </ul>
+
                       </div>
                     </div>
                   </div>

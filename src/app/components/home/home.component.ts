@@ -18,14 +18,15 @@ import { ReviewService } from '../services/review.service';
 })
 export class HomeComponent implements OnInit {
 
+  
 
   constructor() {
 
 
+
   }
   ngOnInit(): void {
-  
-
+    
   }
 
 }
