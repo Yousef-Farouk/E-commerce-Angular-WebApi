@@ -40,9 +40,22 @@
                     <!-- <div class="search-icon">
                         <a class="nav-link" ><i class="bi bi-search"></i></a> 
                     </div> -->
-                    <div class="cart-icon">
-                        <a class="nav-link" ><i class="bi bi-cart-fill"></i></a>
-                        <span ></span>
+                    <div class="cart-icon me-2">
+                        <!-- <a class="nav-link" ><i class="bi bi-cart-fill"></i></a>
+                        <span ></span> -->
+
+                        <!-- <a class="nav-link">
+                         
+                        </a> -->
+                        <a class="btn position-relative py-0 px-0" [routerLink]="'/cart'">
+                          <i class="bi bi-cart"></i>
+                     
+                          <span   *ngIf="(cartService.cartSource$ |async ) as ICart"  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{getCount(ICart.cartItems)}} 
+                            <span class="visually-hidden">unread messages</span>
+                          </span>
+                        
+                        </a>
                     </div>
                     <div class="cart-icon">
                       <!-- <a class="nav-link" ><i class="bi bi-person fs-3"></i></a>

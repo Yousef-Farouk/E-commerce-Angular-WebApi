@@ -1,3 +1,4 @@
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { Routes, CanActivate } from '@angular/router';
@@ -18,5 +19,6 @@ export const routes: Routes = [
     {path:'products',component:AllProductsComponent,canActivate:[AuthGuard]},
     {path:'home',component:HomeComponent},
     {path:'login',component:LoginComponent},
-    {path:'register',component:RegisterComponent}
+    {path:'register',component:RegisterComponent},
+    {path:'cart',component:ShoppingCartComponent}
 ];

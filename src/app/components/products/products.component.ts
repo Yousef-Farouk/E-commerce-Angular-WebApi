@@ -1,8 +1,11 @@
+import { IProductToCart } from './../models/IProductToCart';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Iproduct } from '../models/iproduct';
 import {ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ProductApiService } from '../services/product-api.service';
+import { CartService } from '../services/cart.service';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-products',
@@ -18,22 +21,23 @@ export class ProductsComponent implements OnInit{
 
   products: Iproduct[] ;
 
+  userId :string = ''
   
   constructor(
     public router : Router,
     public ActivatedRoute : ActivatedRoute,
-    public productService : ProductApiService
+    public productService : ProductApiService,
+    public cartService  : CartService,
+    public tokenService : TokenService
   ) {
     
     this.products = []
   }
   ngOnInit(): void {
 
-
     this.ActivatedRoute.queryParams.subscribe(params=>{
       if(params['category'])
         {
-          console.log(params)
           this.productService.getProductByCategory(params['category']).subscribe({
             next:(data:Iproduct[])=>{
               this.products = data
@@ -49,6 +53,9 @@ export class ProductsComponent implements OnInit{
         });
       }
     })
+
+    this.userId = this.tokenService.getClaim("nameid")
+
   }
 
 
@@ -59,8 +66,6 @@ export class ProductsComponent implements OnInit{
         this.productService.getAll().subscribe({
         
           next:(data:Iproduct[])=>{
-  
-            console.log(data)
             this.products = data
           }
         })
@@ -76,7 +81,6 @@ export class ProductsComponent implements OnInit{
       
   }
 
-
   displaySearch()
   {
       this.search_flag = !this.search_flag;
@@ -86,6 +90,23 @@ export class ProductsComponent implements OnInit{
   {
     this.filter_flag = !this.filter_flag
   }
+
+  addToCart(productid : any){
+
+    const productToCart : IProductToCart ={
+      productId : productid , 
+      quantity : 1  
+    }
+
+    console.log(productid)
+    // this.cartService.AddProductToCart(productToCart,this.userId)
+
+  }
+
+
+
+
+  
 
 
 

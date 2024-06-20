@@ -182,7 +182,7 @@
 
                 <div class="block2-txt  pt-3 d-flex justify-content-between">
                     <div class="block2-txt-child1 d-flex flex-column ">
-                        <a href="product-detail.html" class="d-flex flex-column  text-decoration-none pb-2 hover" [routerLink]="['/products',product.id]">
+                        <a  class="d-flex flex-column  text-decoration-none pb-2 hover" [routerLink]="['/products',product.id]">
                             {{product.name}}
                         </a>
 
@@ -191,11 +191,15 @@
                         </span>
                     </div>
 
-                    <div class="block2-txt-child2">
-                        <a href="#" class="">
+                    <div class="block2-txt-child2 me-3">
+                        <!-- <a href="#" class="">
                             <img class="hover" src="../../../assets/imgs/icons/icon-heart-01.png" alt="ICON">
                             <img class="d-none" src="../../../assets/imgs/icons/icon-heart-02.png" alt="ICON">
+                        </a> -->
+                        <a  class="" (click)="addToCart(product)">
+                            <i class="bi bi-cart-fill fs-5 addCart"></i>
                         </a>
+
                     </div>
                 </div>
             </div>

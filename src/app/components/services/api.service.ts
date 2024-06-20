@@ -57,7 +57,7 @@ export class ApiService<T> {
   //     this.dataSubject.next(data)})
   // );
 
-  getById(itemId: number): Observable<T> {
+  getById(itemId: number|string): Observable<T> {
     return this.http.get<T>(`${this.baseUrl}/${itemId}`);
   }
 

@@ -1,3 +1,5 @@
+
+<app-navbar></app-navbar>
 <form class="product-form">
     <div class="container">
         <div class="row">
@@ -10,8 +12,10 @@
 									<th class="column-1">Product</th>
 									<th class="column-2"></th>
 									<th class="column-3">Price</th>
-									<th class="column-4">Quantity</th>
+									<th class="column-4 text-center">Quantity</th>
 									<th class="column-5">Total</th>
+									<th class="column-6 pe-5" >Remove</th>
+
 								</tr>
 
 								<tr class="table_row">
@@ -19,7 +23,7 @@
 										<div class="how-itemcart1">
 											<img src="../../../assets/imgs/item-cart-04.jpg" alt="IMG">
 										</div>
-									</td>
+                                    </td>
 									<td class="column-2">Fresh Strawberries</td>
 									<td class="column-3">$ 36.00</td>
 									<td class="column-4">
@@ -36,6 +40,11 @@
 										</div>
 									</td>
 									<td class="column-5">$ 36.00</td>
+                                    <td class="column-6">
+                                        <button class="btn btn-sm btn-danger remove">
+                                            <i class="bi bi-x-lg "></i>
+                                      </button>
+                                    </td>
 								</tr>
 
                                 <tr class="table_row">
@@ -151,3 +160,6 @@
     </div>
     
 </form>
+
+
+<app-footer></app-footer>

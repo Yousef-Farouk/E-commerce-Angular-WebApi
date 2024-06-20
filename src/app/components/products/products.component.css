@@ -41,7 +41,8 @@ div
 
 .hover:hover
 {
-    color: #007bff;
+    /* background-color: #222; */
+    color:#007bff
 
 }
 
@@ -118,4 +119,13 @@ div
     border-color: #222;
     background-color: #222;
     color: #fff;
+}
+
+.addCart{
+
+   color: #aaa 
+}
+
+.addCart:hover{
+    color:#007bff
 }
