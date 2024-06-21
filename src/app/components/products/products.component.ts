@@ -6,6 +6,7 @@ import {ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/ro
 import { ProductApiService } from '../services/product-api.service';
 import { CartService } from '../services/cart.service';
 import { TokenService } from '../services/token.service';
+import { ICartItem } from '../models/ICartItem';
 
 @Component({
   selector: 'app-products',
@@ -91,15 +92,26 @@ export class ProductsComponent implements OnInit{
     this.filter_flag = !this.filter_flag
   }
 
-  addToCart(productid : any){
+  addToCart(product : Iproduct){
 
     const productToCart : IProductToCart ={
-      productId : productid , 
-      quantity : 1  
+      productId : product.id , 
+      quantity : 1 ,
+
     }
 
-    console.log(productid)
-    // this.cartService.AddProductToCart(productToCart,this.userId)
+    // const cartItem : ICartItem = {
+
+    //   id:this.cartService.cartSource.value?.cartItems.length+1
+    //   productId : product.id ,
+    //   quantity : 1,
+    //   productName:product.name,
+    //   price:product.price,
+    //   totalPrice:product.price
+    // }
+
+    // console.log(productid)
+    this.cartService.AddProductToCart(productToCart,this.userId)
 
   }
 

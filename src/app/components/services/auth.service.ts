@@ -35,7 +35,10 @@ export class AuthService extends ApiService<ILogin> {
 
 
   logout(): void {
+    localStorage.removeItem('decodedToken');
     localStorage.removeItem('authToken');
+
+
   }
   
   isLoggedIn(): boolean {

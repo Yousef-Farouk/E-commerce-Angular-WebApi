@@ -18,36 +18,36 @@
 
 								</tr>
 
-								<tr class="table_row">
+								<tr *ngFor="let item of cartItems" class="table_row">
 									<td class="column-1">
 										<div class="how-itemcart1">
-											<img src="../../../assets/imgs/item-cart-04.jpg" alt="IMG">
+											<img src="{{item.productImage}}" class="w-100" alt="IMG">
 										</div>
                                     </td>
-									<td class="column-2">Fresh Strawberries</td>
-									<td class="column-3">$ 36.00</td>
+									<td class="column-2">{{item.productName}}</td>
+									<td class="column-3">$ {{item.price}}</td>
 									<td class="column-4">
 										<div class="wrap-num-product">
 											<div class="btn-num-product-down">
 												<i class="bi bi-dash-lg"></i>
 											</div>
 
-											<input class="text-center num-product border-top-0 border-bottom-0"  name="num-product1" value="1">
+											<input class="text-center num-product border-top-0 border-bottom-0"  name="num-product1" value={{item.quantity}}>
 
 											<div class="btn-num-product-up">
 												<i class="bi bi-plus-lg"></i>
 											</div>
 										</div>
 									</td>
-									<td class="column-5">$ 36.00</td>
+									<td class="column-5">$ {{item.totalPrice}}</td>
                                     <td class="column-6">
-                                        <button class="btn btn-sm btn-danger remove">
+                                        <button class="btn btn-sm btn-danger remove" (click)="removeProduct($event,item.productId)">
                                             <i class="bi bi-x-lg "></i>
-                                      </button>
+                                        </button>
                                     </td>
 								</tr>
 
-                                <tr class="table_row">
+                                <!-- <tr class="table_row">
 									<td class="column-1">
 										<div class="how-itemcart1">
 											<img src="../../../assets/imgs/item-cart-05.jpg" alt="IMG">
@@ -69,12 +69,12 @@
 										</div>
 									</td>
 									<td class="column-5">$ 36.00</td>
-								</tr>
+								</tr> -->
 							</table>
                         </div>
                     </div>
 
-                    <div class="update-cart justify-content-between align-items-center">
+                    <!-- <div class="update-cart justify-content-between align-items-center">
                         <div class="coupon-container d-flex flex-wrap justify-content-center align-items-center">
                             <input class="" type="text" name="coupon" placeholder="Coupon Code">
                                 
@@ -86,7 +86,7 @@
                         <div class="update-cart-btn d-flex align-items-center justify-content-center ">
                             Update Cart
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

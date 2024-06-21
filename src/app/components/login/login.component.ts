@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { TokenService } from './../services/token.service';
+import { Component, OnInit } from '@angular/core';
 import { ILogin } from '../models/ilogin';
 import { AuthService } from '../services/auth.service';
 import { Router, RouterLink } from '@angular/router';
@@ -12,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
 
   loginData: ILogin = {
@@ -20,7 +21,13 @@ export class LoginComponent {
     password: ''
   };
 
-  constructor(private authService : AuthService,private router:Router) {}
+  constructor(private authService : AuthService,private router:Router,private tokenService : TokenService) {
+
+  }
+  ngOnInit(): void {
+    
+    
+  }
 
 
   
@@ -30,6 +37,9 @@ export class LoginComponent {
     this.authService.login(this.loginData).subscribe(success => {
         if (success) {
             this.router.navigate(['/home']); 
+            const decodedToken = this.tokenService.decodeToken();
+            console.log(decodedToken.nameid)
+          localStorage.setItem('decodedToken',JSON.stringify(decodedToken))
         } else {
             alert('Login failed');
         }

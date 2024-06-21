@@ -5,50 +5,43 @@ import { FooterComponent } from '../footer/footer.component';
 import { CartService } from '../services/cart.service';
 import { Observable, Observer } from 'rxjs';
 import { ICart } from '../models/ICart';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
-  imports: [NavbarComponent,FooterComponent],
+  imports: [NavbarComponent,FooterComponent,CommonModule],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.css'
 })
 export class ShoppingCartComponent implements OnInit {
 
 
-  cartItems$: Observable<ICartItem[]> | undefined;
 
-  cart: ICart|null | undefined;
+  cart: ICart | null | undefined;
 
-  cartItems : ICartItem[] = []
+  cartItems : ICartItem[] | null | undefined= []
+
   constructor(private cartService:CartService) {
     
-    
+  
   }
 
   ngOnInit(): void {
 
     this.cartService.cartSource$.subscribe((cart: ICart|null) => {
       this.cart = cart;
-      console.log(this.cart);
+      this.cartItems = cart?.cartItems
+      //console.log(this.cart);
     });
-
-    // this.cartService.getById("5590d9ff-15f2-4392-b501-a1ef57c815de").subscribe({
-      
-    //   next:(items:ICart)=>{
-    //     this.cart = items
-    //     console.log("cart item :",this.cart)
-    //   },
-    //   error:(error)=>{
-    //     console.log(error)
-    //   }
-    //  }
-    // )     
-
   }
 
 
-  GetProducts(){
-   
+  removeProduct(event:Event,productId : number){
+
+    event.preventDefault();
+    const decodedToken = JSON.parse(localStorage.getItem('decodedToken') as string)
+    let userId = decodedToken.nameid
+    this.cartService.DeleteProduct(userId,productId);
   }
   
 

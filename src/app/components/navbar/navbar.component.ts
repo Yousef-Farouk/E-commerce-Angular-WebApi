@@ -25,8 +25,6 @@ export class NavbarComponent implements OnInit {
 
   userId : string = ''
 
-  // cartItemCount$: Observable<number> | undefined;
-
   cartItemCount: number = 0;
 
   cart : ICart |null = null
@@ -45,10 +43,8 @@ export class NavbarComponent implements OnInit {
 
     this.cartService.getCart(this.userId)
 
-   this.cartService.cartSource$.subscribe(cart=>{
-
+    this.cartService.cartSource$.subscribe(cart=>{
       this.cart = cart 
-      console.log(this.cart)
 
    })
    
@@ -67,6 +63,7 @@ export class NavbarComponent implements OnInit {
 
   logout(): void {
     localStorage.removeItem('authToken');
+    localStorage.removeItem('decodedToken')
     this.route.navigate(["/login"])
   }
 
