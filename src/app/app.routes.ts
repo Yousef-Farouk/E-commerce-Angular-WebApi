@@ -14,11 +14,11 @@ import { ProductTableComponent } from './components/products/product-table/produ
 export const routes: Routes = [
 
     {path:'products/:id/add' ,component:ProductFormComponent},
-    {path:'dashboard/products',component:ProductTableComponent},
-    {path:'products/:id',component:ProductInfoComponent},
+    {path:'dashboard/products',component:ProductTableComponent,canActivate:[AuthGuard]},
+    {path:'products/:id',component:ProductInfoComponent,canActivate:[AuthGuard]},
     {path:'products',component:AllProductsComponent,canActivate:[AuthGuard]},
     {path:'home',component:HomeComponent},
     {path:'login',component:LoginComponent},
     {path:'register',component:RegisterComponent},
-    {path:'cart',component:ShoppingCartComponent}
+    {path:'cart',component:ShoppingCartComponent,canActivate:[AuthGuard]}
 ];

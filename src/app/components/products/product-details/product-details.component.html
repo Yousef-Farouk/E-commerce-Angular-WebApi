@@ -49,21 +49,42 @@
                    {{product.name}}
                 </h4>
 
+                
                 <span class="mtext mb-5">
                     $ {{product.price}}
                 </span>
+
+                <ng-container *ngIf="product.quantity > 0; else outOfStock">
+                    <div class="mtext my-2 ">
+                      only {{ product.quantity }} in Stock
+                    </div>
+                </ng-container>
+
+                <ng-template #outOfStock>
+                    <div class="mtext my-2 text-danger">
+                      Out of Stock
+                    </div>
+                  </ng-template>
+
+                <!-- <div *ngIf="product.quantity > 0 " class="mtext my-2">
+                   only {{product.quantity}} in Stock
+                </div>
+
+                <div  class="mtext my-2">
+                    out of Stock
+                </div> -->
 
                 <p class="stext">
                     {{product.description.split('.').slice(0,3).join('.')}}
                 </p>
 
                 <div class="mt-5 pb-4 ">
-                    <div class="d-flex pb-3 flex-end w-100">
-                        <div class="d-flex align-items-center justify-content-center" style="width:105px;font-family:Arial, Helvetica, sans-serif">
+                    <!-- <div class="d-flex pb-3 flex-end w-100"> -->
+                        <!-- <div class="d-flex align-items-center justify-content-center" style="width:105px;font-family:Arial, Helvetica, sans-serif">
                             Size
-                        </div>
+                        </div> -->
 
-                        <div class="w-100">
+                        <!-- <div class="w-100">
                             <div class="select-list ">
                                 <select class="w-100 h-100 px-3" style="font-family:Poppins-Regular;font-size: 13px;">            
                                     <option>Choose an option</option>
@@ -74,13 +95,13 @@
                                 </select>
                                 <div class="dropDownSelect2"></div>
                             </div>
-                        </div>
+                        </div> -->
                         
 
-                    </div>
+                    <!-- </div> -->
 
-                    <div class="d-flex pb-3">
-                        <div class="d-flex align-items-center justify-content-center" style="width:105px;font-family:Arial, Helvetica, sans-serif">
+                    <!-- <div class="d-flex pb-3"> -->
+                        <!-- <div class="d-flex align-items-center justify-content-center" style="width:105px;font-family:Arial, Helvetica, sans-serif">
                             Color
                         </div>
 
@@ -95,26 +116,39 @@
                                 </select>
                                 <div class="dropDownSelect2"></div>
                             </div>
-                        </div>
+                        </div> -->
                         
-                    </div>
+                    <!-- </div> -->
 
-                    <div class="d-flex flex-wrap pb-3 justify-content-end align-items-center">
-                        <div class="d-flex flex-wrap align-items-center  align-group " >
-                            <div class="d-flex flex-wrap wrap-num-product justify-content-center align-items-center ">
-                                <div class="product-btn-down d-flex justify-content-center align-items-center me-3 ">
-                                    <i class="bi bi-dash-lg "></i>
-                                </div>
-                                <input class="text-center product-num border-top-0 border-bottom-0" name="num-product" value="1">
-                                
-                                <div class="product-btn-up d-flex justify-content-center align-items-center ms-3 ">
-                                    <i class="bi bi-plus-lg"></i>                                
-                                </div>
-                            </div>
-
-                            <button class="btn cart-btn ">
+                    <div class="d-flex flex-wrap pb-3 align-items-center">
+                        <div class="d-flex flex-wrap align-items-center  " >
+                            <button class="btn cart-btn  me-4" (click) = "addToCart(product)" [ngClass]="{'disabled' : product.quantity == 0 }">
                                 Add to cart
                             </button>
+
+                            <div class="d-flex flex-wrap wrap-num-product justify-content-center align-items-center ">
+                                <div class="product-btn-down d-flex justify-content-center align-items-center me-3 " (click)="decreaseQuantity(product.quantity)">
+                                    <i class="bi bi-dash-lg "></i>
+                                </div>
+                                <input class="text-center product-num border-top-0 border-bottom-0" name="num-product" type="text" [(ngModel)] = "quantity">
+                                
+                                <div class="product-btn-up d-flex justify-content-center align-items-center ms-3 " (click)="increaseQuantity(product.quantity)">
+                                    <i class="bi bi-plus-lg"></i>                                
+                                </div>
+                                
+                            </div>
+                            <ng-container *ngIf="quantityExceeded == true">
+                                    <div class="stext my-2 text-danger py-0 ">
+                                      only {{ product.quantity }} in Stock
+                                    </div>
+                            </ng-container>
+
+                            <ng-container *ngIf="product.quantity == 0">
+                                <div class="stext my-2 text-danger py-0 ">
+                                  Out of Stock
+                                </div>
+                            </ng-container>
+                            
                         </div>
                     </div>	
 

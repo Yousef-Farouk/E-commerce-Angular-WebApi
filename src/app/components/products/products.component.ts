@@ -38,13 +38,29 @@ export class ProductsComponent implements OnInit{
 
     this.ActivatedRoute.queryParams.subscribe(params=>{
       if(params['category'])
-        {
-          this.productService.getProductByCategory(params['category']).subscribe({
-            next:(data:Iproduct[])=>{
-              this.products = data
-            }
-          })
-        }
+      {
+       
+          if(params['category'] == 'accessories')
+          {
+            this.productService.getAll().subscribe({
+        
+              next:(data:Iproduct[])=>{
+                this.products = data
+                this.products = this.products.filter(p=>p.categoryId != 1 )
+                this.products = this.products.filter(p=>p.categoryId != 2 )
+              }
+            })
+
+          }
+          else {
+            this.productService.getProductByCategory(params['category']).subscribe({
+              next:(data:Iproduct[])=>{
+                this.products = data
+              }
+            })
+          }
+         
+      }
        
       else {
         this.productService.getAll().subscribe({
@@ -61,6 +77,7 @@ export class ProductsComponent implements OnInit{
 
 
   getProductByCategory(category : string ){
+
 
      if(category == 'all')
       {
@@ -99,18 +116,6 @@ export class ProductsComponent implements OnInit{
       quantity : 1 ,
 
     }
-
-    // const cartItem : ICartItem = {
-
-    //   id:this.cartService.cartSource.value?.cartItems.length+1
-    //   productId : product.id ,
-    //   quantity : 1,
-    //   productName:product.name,
-    //   price:product.price,
-    //   totalPrice:product.price
-    // }
-
-    // console.log(productid)
     this.cartService.AddProductToCart(productToCart,this.userId)
 
   }

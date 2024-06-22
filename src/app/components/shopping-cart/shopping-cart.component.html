@@ -11,7 +11,7 @@
 								<tr class="table_head">
 									<th class="column-1">Product</th>
 									<th class="column-2"></th>
-									<th class="column-3">Price</th>
+									<th class="column-3 text-center">Price</th>
 									<th class="column-4 text-center">Quantity</th>
 									<th class="column-5">Total</th>
 									<th class="column-6 pe-5" >Remove</th>
@@ -25,18 +25,18 @@
 										</div>
                                     </td>
 									<td class="column-2">{{item.productName}}</td>
-									<td class="column-3">$ {{item.price}}</td>
+									<td class="column-3 text-center">$ {{item.price}}</td>
 									<td class="column-4">
 										<div class="wrap-num-product">
-											<div class="btn-num-product-down">
+											<!-- <div class="btn-num-product-down" (click)="decreaseQuantity(item.productId)">
 												<i class="bi bi-dash-lg"></i>
-											</div>
-
+											</div> -->
 											<input class="text-center num-product border-top-0 border-bottom-0"  name="num-product1" value={{item.quantity}}>
 
-											<div class="btn-num-product-up">
+
+											<!-- <div class="btn-num-product-up" (click)="increaseQuantity(item.productId)">
 												<i class="bi bi-plus-lg"></i>
-											</div>
+											</div> -->
 										</div>
 									</td>
 									<td class="column-5">$ {{item.totalPrice}}</td>
@@ -94,12 +94,12 @@
             <div class="col-lg-7 col-xl-5 col-sm-10 mx-auto mb-5">
                 <div class="price-container">
                     <h4 class="text-uppercase btext">Cart Totals</h4>
-                    <div class="d-flex justify-content-between align-items-center pb-3">
+                    <!-- <div class="d-flex justify-content-between align-items-center pb-3">
                         <div class="ssize">
                             <span class="stext">SubTotal:</span>
                         </div>
                         <div class="msize">
-                            <span class="mtext">$79.65</span>
+                            <span class="mtext">$ {{subTotal}}</span>
                         </div>
                     </div>
                     <div class="d-flex shopping-container">
@@ -139,18 +139,18 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="d-flex justify-content-between align-items-center pb-4 pt-4">
                         <div class="msize">
                             <span class="mtext">Total:</span>
                         </div>
                         <div class="msize">
-                            <span class="mtext">$79.65</span>
+                            <span class="mtext">$ {{Total}}</span>
                         </div>
                     </div>
 
-                    <button class="d-flex btn check-out-btn justify-content-center align-items-center">
+                    <button class="d-flex btn check-out-btn justify-content-center align-items-center" (click)="onOrder()" type="button">
                         Proceed to Checkout
                     </button>
                 </div>
